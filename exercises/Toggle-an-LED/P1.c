@@ -1,23 +1,20 @@
 #include <stdio.h>
-
 #define LED_PIN 0
 
-int i;
-
-void loop() {
-    for (i=0; i<50; i++);
+void delay_one_sec(void) {
+    volatile unsigned long i;
+    for (i = 0; i < 1000000UL; i++); 
 }
 
-
 int main(void){
-    printf("LED toggle started on pin %d. \n", LED_PIN);
+    printf("LED toggle started on pin %d, \n", LED_PIN);
 
-    while(1) {
-        printf("LED 'ON' \n");
-        loop();
+    while(1){
+        printf("LED 'ON'\n");
+        delay_one_sec();
 
-        printf("LED 'OFF' \n");
-        loop();
+        printf("LED 'OFF'\n");
+        delay_one_sec();
     }
     return 0;
 }
