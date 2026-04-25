@@ -18,8 +18,8 @@ The project is organized by hardware architecture and learning modules:
 
 ## Tech Stack & Tools
 * **Language:** C (C99/C11 standards)
-* **Toolchains:** GCC ARM Embedded, Keil uVision
-* **Platforms:** STM32, ESP32, and ARM Cortex-M Series
+* **Toolchains:** GCC ARM Embedded, STM32ClubeIDE
+* **Platforms:** STM32, ARM Cortex-M Series,
 * **Utilities:** GDB for debugging, Docker for build environments
 
 ## How to Use
