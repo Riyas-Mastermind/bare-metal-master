@@ -7,14 +7,17 @@ void delay_one_sec(void) {
 }
 
 int main(void){
-    printf("LED toggle started on pin %d, \n", LED_PIN);
+    printf("LED toggle started on pin %d \n", LED_PIN);
 
-    while(1){
+int count = 0;
+    while(count < 10){
         printf("LED 'ON'\n");
         delay_one_sec();
 
         printf("LED 'OFF'\n");
         delay_one_sec();
+    
+        count++;
     }
     return 0;
 }
