@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #define LED_PIN 0
 
 void delay_one_sec(void) {
@@ -19,6 +20,5 @@ int count = 0;
     
         count++;
     }
-
     return 0;
 }
