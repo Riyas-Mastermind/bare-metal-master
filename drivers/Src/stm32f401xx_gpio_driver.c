@@ -5,7 +5,6 @@
  *      Author: riyas
  */
 
-
 #include <stm32f401xx_gpio_driver.h>
 
 
@@ -85,6 +84,20 @@ void GPIO_PerClkControl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI)
 /*
  * Init and De-init
  */
+/**********************************************************************************
+ * @fn             --> GPIO_Init
+ *
+ * @brief          --> This functions Configure the GPIO Registor Peripheral for init modes
+ *
+ * @param[in]      --> GPIO_Handles_reg
+ * @param[in]	   --> none
+ * @param[in]	   --> none
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
 
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
@@ -138,6 +151,21 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	}
 }
 
+/**********************************************************************************
+ * @fn             --> GPIO_DeInit
+ *
+ * @brief          --> This functions De-init all GPIO reg as reset modes
+ *
+ * @param[in]      --> GPIO reg modes
+ * @param[in]	   --> none
+ * @param[in]	   --> none
+ *
+ * @return         --> 0
+ *
+ * @Note           --> none
+ *
+ */
+
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 {
 	if(pGPIOx == GPIOA)
@@ -169,6 +197,20 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 /*
  * Data Read and Write
  */
+/**********************************************************************************
+ * @fn             --> GPIO_ReadFromInputPin
+ *
+ * @brief          --> This functions will Reading the i/p pin number as GPIO reg
+ *
+ * @param[in]      --> GPIO reg modes
+ * @param[in]	   --> Pin number
+ * @param[in]	   --> none
+ *
+ * @return         --> value
+ *
+ * @Note           --> none
+ *
+ */
 
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 {
@@ -179,6 +221,21 @@ uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 	return value;
 }
 
+/**********************************************************************************
+ * @fn             --> GPIO_ReadFromInputPort
+ *
+ * @brief          --> This functions Reading the i/p port of GPIO all reg
+ *
+ * @param[in]      --> GPIO reg modes
+ * @param[in]	   --> none
+ * @param[in]	   --> none
+ *
+ * @return         --> value
+ *
+ * @Note           --> none
+ *
+ */
+
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
 {
 	uint16_t value;
@@ -188,6 +245,20 @@ uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
 	return value;
 }
 
+/**********************************************************************************
+ * @fn             --> GPIO_WriteToOutputPin
+ *
+ * @brief          --> This functions will be write the o/p pin of the GPIO reg mode
+ *
+ * @param[in]      --> GPIO Reg modes
+ * @param[in]	   --> setting value of Pin Number
+ * @param[in]	   --> value
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
 
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value)
 {
@@ -204,11 +275,40 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Val
 
 }
 
+/**********************************************************************************
+ * @fn             --> GPIO_WriteToOutputPort
+ *
+ * @brief          --> This functions will write o/p port GPIO reg modes
+ *
+ * @param[in]      --> GPIO reg mode
+ * @param[in]	   --> value
+ * @param[in]	   --> none
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
+
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t Value)
 {
 	pGPIOx ->ODR = Value;
 }
 
+/**********************************************************************************
+ * @fn             --> GPIO_ToggleOutputPin
+ *
+ * @brief          --> This functions enable or disable peripheral clock for the given GPIO port
+ *
+ * @param[in]      --> Base address of the GPIO peripheral
+ * @param[in]	   --> Enable or Disable macros
+ * @param[in]	   --> none
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 {
 	pGPIOx ->ODR ^= (1 << PinNumber);
@@ -218,10 +318,40 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
  * IRQ Configuration and ISR handling
  */
 
+/**********************************************************************************
+ * @fn             --> GPIO_IRQConfig
+ *
+ * @brief          --> This functions enable or disable peripheral clock for the given GPIO port
+ *
+ * @param[in]      --> Base address of the GPIO peripheral
+ * @param[in]	   --> Enable or Disable macros
+ * @param[in]	   --> none
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
+
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t ENorDI)
 {
 
 }
+
+/**********************************************************************************
+ * @fn             --> GPIO_IRQHandling
+ *
+ * @brief          --> This functions enable or disable peripheral clock for the given GPIO port
+ *
+ * @param[in]      --> Base address of the GPIO peripheral
+ * @param[in]	   --> Enable or Disable macros
+ * @param[in]	   --> none
+ *
+ * @return         --> none
+ *
+ * @Note           --> none
+ *
+ */
 
 void GPIO_IRQHandling(uint8_t PinNumber)
 {
