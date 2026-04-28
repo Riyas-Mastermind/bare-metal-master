@@ -117,7 +117,6 @@ typedef struct
 #define GPIOD							((GPIO_RegDef_t*)GPIOD_BASEADDR)
 #define GPIOE							((GPIO_RegDef_t*)GPIOE_BASEADDR)
 #define GPIOH							((GPIO_RegDef_t*)GPIOH_BASEADDR)
-
 #define RCC								((RCC_RegDef_t*)RCC_BASEADDR)
 
 /*
@@ -224,6 +223,7 @@ typedef struct
 #define GPIO_PIN_SET					SET
 #define GPIO_PIN_RESET					RESET
 
+//driver file include
 #include <stm32f401xx_gpio_driver.h>
 
 #endif /* INC_STM32F401XX_H_ */

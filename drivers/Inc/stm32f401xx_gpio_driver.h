@@ -43,6 +43,7 @@ typedef struct
  * @GPIO_PIN_NUMBER
  * GPIO pin number
  */
+
 #define GPIO_PIN_NO_0				0
 #define GPIO_PIN_NO_1				1
 #define GPIO_PIN_NO_2				2
@@ -77,6 +78,7 @@ typedef struct
 /*
  * GPIO pin possible Output types
  */
+
 #define GPIO_OP_TYPE_PP             0
 #define GPIO_OP_TYPE_OD				1
 
@@ -92,9 +94,12 @@ typedef struct
 /*
  * GPIO pin possible pull up/down configuration macros
  */
+
 #define GPIO_NO_PUPD				0
 #define GPIO_PIN_PU					1
 #define GPIO_PIN_PD					2
+
+
 
 /*****************************************************************************************************************************
 *                                               APIs supported by this driver
@@ -131,7 +136,6 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t ENorDI);
 void GPIO_IRQHandling(uint8_t PinNumber);
-
 
 
 #endif /* INC_STM32F401XX_GPIO_DRIVER_H_ */
