@@ -7,7 +7,7 @@
 
 #include <stm32f401xx.h>
 
-#define HIGH 				DISABLE
+#define HIGH 				0		// As per STM32f401RE button will be [1] is Low and [0] is High when the button statues
 #define BTN_PRESSED 		HIGH
 
 void delay(void)
@@ -33,11 +33,11 @@ int main(void)
 	GPIO_Init(&GPIO_LED);
 
 	//button configure
-	GPIO_LED.pGPIOx = GPIOC;
-	GPIO_LED.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
-	GPIO_LED.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
-	GPIO_LED.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
-	GPIO_LED.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	GPIO_BUTTON.pGPIOx = GPIOC;
+	GPIO_BUTTON.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIO_BUTTON.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	GPIO_BUTTON.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_BUTTON.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
 
 	GPIO_PerClkControl(GPIOC, ENABLE);
 
@@ -45,7 +45,7 @@ int main(void)
 
 	while(1)
 	{
-		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == BTN_PRESSED)
+		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == HIGH)
 		{
 			delay();
 			GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);
