@@ -9,9 +9,6 @@
 #include <stm32f401xx.h>
 #include <string.h>
 
-#define HIGH 				0		// As per STM32f401RE button will be [1] is Low and [0] is High when the button statues
-#define BTN_PRESSED 		HIGH
-
 void delay(void)
 {
 	for (uint32_t i = 0; i < 500000/2; i++);
@@ -49,6 +46,7 @@ int main(void)
 	GPIO_Init(&GPIO_BUTTON);
 
 	GPIO_WriteToOutputPin(GPIOC,GPIO_PIN_NO_13,GPIO_PIN_RESET);
+
 	//IRQ Configurations
 	GPIO_IRQPriorityConfig(IRQ_NO_EXTI15_10, NVIC_IRQ_PRIO15);
 	GPIO_IRQInterruptConfig(IRQ_NO_EXTI15_10, ENABLE);
